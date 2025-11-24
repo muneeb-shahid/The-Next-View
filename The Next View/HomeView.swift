@@ -11,55 +11,68 @@ struct HomeView: View {
 
     var body: some View {
         GeometryReader { geo in
-            ScrollView() {
-                LazyVStack{
-                    AsyncImage(url: URL(string:ImageConstants.testTitleURL )){
+            ScrollView {
+                LazyVStack {
+                    AsyncImage(url: URL(string: ImageConstants.testTitleURL)) {
                         image in
                         image
                             .resizable()
                             .scaledToFit()
-                            .overlay{
+                            .overlay {
                                 LinearGradient(
-                                    stops: [Gradient.Stop(color: .clear, location: 0.8), Gradient.Stop(color: .gradient, location: 1)],
-                                    startPoint:.top,
-                                               endPoint: .bottom)
-                                
+                                    stops: [
+                                        Gradient.Stop(
+                                            color: .clear,
+                                            location: 0.8
+                                        ),
+                                        Gradient.Stop(
+                                            color: .gradient,
+                                            location: 1
+                                        ),
+                                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+
                             }
-                    }
-                  
-                    
-                    placeholder: {
+                    } placeholder: {
                         ProgressView()
                     }
-                    
-                    .frame(width:geo.size.width, height: geo.size.height*0.85,)
+
+                    .frame(
+                        width: geo.size.width,
+                        height: geo.size.height * 0.85,
+                    )
                     HStack {
-                        Button{
-                            
-                        }label: {
+                        Button {
+
+                        } label: {
                             Text(Constants.playString)
                                 .buttonUI()
-                            
+
                         }
                         .frame(width: 150)
-                        Button{
-                            
-                        }label: {
+                        Button {
+
+                        } label: {
                             Text(Constants.downloadString)
                                 .buttonUI()
                         }
-                        
+
                     }
-                    HorizontalListView(headerText: Constants.trendingMovieString)
+                    HorizontalListView(
+                        headerText: Constants.trendingMovieString
+                    )
                     HorizontalListView(headerText: Constants.trendingTVString)
                     HorizontalListView(headerText: Constants.topRatedTVString)
-                    HorizontalListView(headerText: Constants.topRatedMovieString)
-                    
-                    
+                    HorizontalListView(
+                        headerText: Constants.topRatedMovieString
+                    )
+
                 }
             }
         }
-        
+
     }
 }
 
