@@ -11,7 +11,10 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Tab(Constants.homeString, systemImage: ImageConstants.homeImageName) {
-                HomeView()            }
+                 HomeView()   
+
+                                
+                         }
             Tab(Constants.upcomingString, systemImage: ImageConstants.upcomingImageName) {
                 Text("this is media screen")
             }
