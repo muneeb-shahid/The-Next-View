@@ -14,4 +14,19 @@ struct Constants {
     static let tvSearchString = "TV Search"
     static let moviePlaceHolderString = "Search for a Movie"
     static let tvPlaceHolderString = "Search for a TV Show"
+    
+    
+    
+    static func addPosterPath(to titles: inout[Title]){
+        for i in titles.indices{
+            print("poster path indexing ......\(i)")
+            if let path = titles[i].poster_path{
+                titles[i].poster_path = ImageConstants.posterURLStart + path
+                
+                print("poster path ......\(path)")
+            }
+        }
+        
+        
+    }
 }

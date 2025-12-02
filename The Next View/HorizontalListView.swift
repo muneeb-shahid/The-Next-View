@@ -2,10 +2,7 @@ import SwiftUI
 
 struct HorizontalListView: View {
     let headerText: String
-    let trendingImages = [
-        ImageConstants.testTitleURL, ImageConstants.testTitleURL2,
-        ImageConstants.testTitleURL3,
-    ]
+    var titles: [Title]
 
     var body: some View {
 
@@ -14,10 +11,10 @@ struct HorizontalListView: View {
             Spacer()
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(trendingImages, id: \.self) { imageURL in
-                        AsyncImage(url: URL(string: imageURL)) { image in
+                    ForEach(titles, ) { imageURL in
+                        AsyncImage(url: URL(string: imageURL.poster_path ?? ""))
+                        { image in
                             image.resizable().scaledToFit().clipShape(
-
                                 RoundedRectangle(cornerRadius: 10)
 
                             )
@@ -27,7 +24,6 @@ struct HorizontalListView: View {
                         .frame(width: 150, height: 250)
 
                     }
-                    //                    .padding(.horizontal,0)
 
                 }
 
@@ -41,5 +37,8 @@ struct HorizontalListView: View {
 }
 
 #Preview {
-    HorizontalListView(headerText: Constants.trendingMovieString)
+    HorizontalListView(
+        headerText: Constants.trendingMovieString,
+        titles: Title.previewTitles
+    )
 }

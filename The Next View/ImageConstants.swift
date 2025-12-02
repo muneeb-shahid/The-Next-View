@@ -22,5 +22,6 @@ struct ImageConstants {
         "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
 
     static let posterURLStart = "https://image.tmdb.org/t/p/w500"
-
+    
+   
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
         TabView {
             Tab(Constants.homeString, systemImage: ImageConstants.homeImageName)
@@ -34,8 +36,9 @@ struct ContentView: View {
                 Text("this is download screen")
             }
         }
+
     }
-}
+        }
 
 #Preview {
     ContentView()
