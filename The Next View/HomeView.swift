@@ -23,7 +23,7 @@ struct HomeView: View {
                 case .success:
                     LazyVStack {
                         AsyncImage(
-                            url: URL(string: ImageConstants.testTitleURL)
+                            url: URL(string: viewModel.heroTitle.poster_path ?? "")
                         ) {
                             image in
                             image
@@ -75,11 +75,19 @@ struct HomeView: View {
                             headerText: Constants.trendingMovieString,
                             titles: viewModel.trendingMovies
                         )
-                        //                    HorizontalListView(headerText: Constants.trendingTVString)
-                        //                    HorizontalListView(headerText: Constants.topRatedTVString)
-                        //                    HorizontalListView(
-                        //                        headerText: Constants.topRatedMovieString
-                        //                    )
+                        HorizontalListView(
+                            headerText: Constants.topRatedMovieString,
+                            titles: viewModel.topRatedMovies
+                        )
+                        HorizontalListView(
+                            headerText: Constants.trendingTVString,
+                            titles: viewModel.trendingTV
+                        )
+                        HorizontalListView(
+                            headerText: Constants.topRatedTVString,
+                            titles: viewModel.topRatedTV
+
+                        )
 
                     }
                 case .failed(let error):
