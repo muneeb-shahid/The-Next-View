@@ -3,6 +3,7 @@ import SwiftUI
 struct HorizontalListView: View {
     let headerText: String
     var titles: [Title]
+    let onTap : (Title) -> Void
 
     var body: some View {
 
@@ -11,8 +12,8 @@ struct HorizontalListView: View {
             Spacer()
             ScrollView(.horizontal) {
                 LazyHStack {
-                    ForEach(titles, ) { imageURL in
-                        AsyncImage(url: URL(string: imageURL.poster_path ?? ""))
+                    ForEach(titles) { title in
+                        AsyncImage(url: URL(string: title.poster_path ?? ""))
                         { image in
                             image.resizable().scaledToFit().clipShape(
                                 RoundedRectangle(cornerRadius: 10)
@@ -22,6 +23,9 @@ struct HorizontalListView: View {
                             ProgressView()
                         }
                         .frame(width: 150, height: 250)
+                        .onTapGesture {
+                            onTap(title)
+                        }
 
                     }
 
@@ -39,6 +43,9 @@ struct HorizontalListView: View {
 #Preview {
     HorizontalListView(
         headerText: Constants.trendingMovieString,
-        titles: Title.previewTitles
+        titles: Title.previewTitles,
+      onTap:  {
+            title in
+        }
     )
 }
