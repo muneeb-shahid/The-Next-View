@@ -72,11 +72,12 @@ struct TitleDetailView: View {
 
         }
         .task {
-            print("task of title detail view")
+            print("📺 TitleDetailView task started for: \(titleName)")
             await viewModel.getVideoId(for: titleName)
+            print("📺 TitleDetailView task completed. Status: \(viewModel.videoIdStatus)")
         }
         .onAppear {
-            print("on appear of title detail view")
+            print("📺 TitleDetailView appeared for: \(titleName)")
 //           viewModel.getVideoId(for: titleName)
         }
     }

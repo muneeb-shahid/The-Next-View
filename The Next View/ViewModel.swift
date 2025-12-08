@@ -18,10 +18,12 @@ class ViewModel {
 
     private(set) var homeStatus: FetchStatus = .notStarted
     private(set) var videoIdStatus: FetchStatus = .notStarted
-    
+    private(set) var upcomingStatus: FetchStatus = .notStarted
+
     private let dataFetcher = DataFetcher()
     var trendingMovies: [Title] = []
     var topRatedMovies: [Title] = []
+    var upcomingMovies: [Title] = []
 
     var trendingTV: [Title] = []
     var topRatedTV: [Title] = []
@@ -85,5 +87,29 @@ class ViewModel {
                 videoIdStatus = .failed(underlyingError: error)
             }
         }
+    
+    
+    
+    func getUpcomingmovies() async {
+        print("🎬 Starting to fetch upcoming movies...")
+        upcomingStatus = .fetching
+        
+        do {
+            async let upcomingMoviesValue  =  dataFetcher.fetchTitles(
+                for: Constants.movieString,
+                by: Constants.smallUpcomingString
+            )
+            
+            upcomingMovies = try await upcomingMoviesValue
+            print("✅ Successfully fetched \(upcomingMovies.count) upcoming movies")
+            upcomingStatus = .success
+        }
+        catch {
+            print("❌ Error fetching upcoming movies: \(error)")
+            print("❌ Error details: \(error.localizedDescription)")
+            upcomingStatus = .failed(underlyingError: error)
+        }
+        
+    }
 
 }

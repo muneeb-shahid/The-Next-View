@@ -21,7 +21,7 @@ struct ContentView: View {
                 Constants.upcomingString,
                 systemImage: ImageConstants.upcomingImageName
             ) {
-                Text("this is media screen")
+                UpcomingView()
             }
             Tab(
                 Constants.searchString,

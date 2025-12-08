@@ -7,7 +7,8 @@ struct Constants {
     static let playString = "Play"
     static let movieString = "movie"
     static let tvString = "tv"
-    
+    static let smallUpcomingString = "upcoming"
+
     static let topUnderScoreRatedString = "top_rated"
     static let trendingString = "trending"
     static let trendingMovieString = "Trending Movies"
