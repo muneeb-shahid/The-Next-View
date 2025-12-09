@@ -27,8 +27,7 @@ struct ContentView: View {
                 Constants.searchString,
                 systemImage: ImageConstants.searchImageName
             ) {
-                Text("this is search screen")
-            }
+                SearchView()            }
             Tab(
                 Constants.downloadString,
                 systemImage: ImageConstants.downloadImageName

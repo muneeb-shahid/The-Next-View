@@ -3,11 +3,15 @@ struct Constants {
     static let homeString = "Home"
     static let upcomingString = "Upcoming"
     static let searchString = "Search"
+    static let smallSearchString = "search"
     static let downloadString = "Download"
     static let playString = "Play"
     static let movieString = "movie"
     static let tvString = "tv"
     static let smallUpcomingString = "upcoming"
+    
+
+    
 
     static let topUnderScoreRatedString = "top_rated"
     static let trendingString = "trending"
@@ -24,7 +28,7 @@ struct Constants {
     
     static func addPosterPath(to titles: inout[Title]){
         for i in titles.indices{
-            print("poster path indexing ......\(i)")
+//            print("poster path indexing ......\(i)")
             if let path = titles[i].poster_path{
                 titles[i].poster_path = ImageConstants.posterURLStart + path
                 

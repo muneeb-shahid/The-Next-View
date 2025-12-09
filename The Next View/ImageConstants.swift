@@ -14,6 +14,9 @@ struct ImageConstants {
     static let searchImageName = "magnifyingglass"
     static let downloadImageName = "arrow.down.circle"
 
+    static let movieIcon = "movieclapper"
+    static let tvIcon = "tv"
+
     static let testTitleURL =
         "https://image.tmdb.org/t/p/w500/nnl6OWkyPpuMm595hmAxNW3rZFn.jpg"
     static let testTitleURL2 =

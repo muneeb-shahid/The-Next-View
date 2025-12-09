@@ -15,10 +15,10 @@ struct DataFetcher{
     let youtubeAPIKey = APIConfig.shared?.youtubeAPIKey
     let youtubeSearchURL = APIConfig.shared?.youtubeSearchURL
     
-    func fetchTitles(for media: String,  by type:String) async throws -> [Title] {
+    func fetchTitles(for media: String,  by type:String, with title: String? = nil) async throws -> [Title] {
         
         
-        let fetchTitlesUrl = try  helperBuildUrl(media: media , type: type, )
+        let fetchTitlesUrl = try  helperBuildUrl(media: media , type: type,searchPhrase: title )
         guard let fetchTitlesUrl = fetchTitlesUrl else{
             throw NetworkError.urlBuildFailed
         }
@@ -71,9 +71,7 @@ struct DataFetcher{
         print("fetchVideoId URL:" , fetchVideoURL)
         
         return try await fetchAndDecode(url: fetchVideoURL, type: YoutubeSearchResponse.self).items?.first?.id.videoId ?? ""
-//        guard let videoId = try await fetchAndDecode(url: fetchVideoURL, type: YoutubeSearchResponse.self).items?.first?.id.videoId else {
-//            throw NetworkError.urlBuildFailed        }
-//        return videoId
+
     }
     
     func fetchAndDecode<T: Decodable>(url: URL, type: T.Type) async throws -> T {
@@ -91,7 +89,7 @@ struct DataFetcher{
         return try decoder.decode(type, from: data)
     }
     
-    private func helperBuildUrl(media:String,type:String) throws -> URL? {
+    private func helperBuildUrl(media:String,type:String, searchPhrase: String? = nil) throws -> URL? {
         guard let baseURL = tmdbBaseURL else {
             throw NetworkError.missingConfig
         }
@@ -114,7 +112,7 @@ struct DataFetcher{
                   throw NetworkError.urlBuildFailed
               }
               
-        let query = [
+        var query = [
             URLQueryItem(
                 name: "api_key",
                 value: apiKey
@@ -123,6 +121,10 @@ struct DataFetcher{
 //        if let query {
 //                    urlQueryItems.append(URLQueryItem(name: "query", value: searchPhrase))
 //                }
+        
+        if let searchPhrase {
+            query.append(URLQueryItem(name: "query", value: searchPhrase))
+        }
         
         guard let url = URL(string: baseURL)?
                 .appending(path: path)
