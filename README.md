@@ -43,7 +43,7 @@
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/The-Next-View.git
+    git clone https://github.com/muneeb-shahid/The-Next-View.git
     ```
 2.  **Open the project**:
     Open `The Next View.xcodeproj` in Xcode.
