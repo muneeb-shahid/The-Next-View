@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  The Next View
-//
-//  Created by UTF LABS on 17/11/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {

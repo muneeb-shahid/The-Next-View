@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  The Next View
-//
-//  Created by UTF LABS on 24/11/2025.
-//
-
 import SwiftUI
 
 struct HomeView: View {
@@ -71,20 +64,13 @@ struct HomeView: View {
                                         .buttonUI()
 
                                 }
-//                                .frame(width: 150)
-//                                Button {
-//
-//                                } label: {
-//                                    Text(Constants.downloadString)
-//                                        .buttonUI()
-//                                }
 
                             }
                             HorizontalListView(
                                 headerText: Constants.trendingMovieString,
                                 titles: viewModel.trendingMovies,
                                 onTap: { title in
-                                    
+
                                     print("Trending Movie Tapped: \(title)")
 
                                     titleDetailNavigationPath.append(
@@ -97,8 +83,9 @@ struct HomeView: View {
                                 titles: viewModel.topRatedMovies,
                                 onTap: { title in
                                     titleDetailNavigationPath.append(
-                                        title                                    )
-                                    
+                                        title
+                                    )
+
                                     print("Top Rated Movie Tapped: \(title)")
                                 }
                             )
@@ -107,9 +94,9 @@ struct HomeView: View {
                                 titles: viewModel.trendingTV,
                                 onTap: { title in
                                     titleDetailNavigationPath.append(
-                                        title                                    )
-                                    
-                                    
+                                        title
+                                    )
+
                                     print("Trending TV Tapped: \(title)")
                                 }
                             )
@@ -120,7 +107,7 @@ struct HomeView: View {
                                     titleDetailNavigationPath.append(
                                         title
                                     )
-                                    
+
                                     print("Top Rated TV Tapped: \(title)")
                                 }
 
@@ -129,7 +116,7 @@ struct HomeView: View {
                         }
                     case .failed(let error):
                         Text(error.localizedDescription)
-                            //                    errorMessage()
+
                             .frame(
                                 width: geo.size.width,
                                 height: geo.size.height
@@ -140,11 +127,6 @@ struct HomeView: View {
                 }
             }.onAppear {
                 print("...onAppear function...")
-                //
-                //            if let config = APIConfig.shared {
-                //                print(config.tmdbAPIKey)
-                //                print(config.tmdbBaseURL)
-                //            }
 
             }.task {
                 print("...on task function...")

@@ -1,10 +1,3 @@
-//
-//  ViewModel.swift
-//  The Next View
-//
-//  Created by UTF LABS on 02/12/2025.
-//
-
 import Foundation
 
 @Observable
@@ -33,83 +26,80 @@ class HomeViewModel {
 
     func getTitles() async {
         homeStatus = .fetching
-        
-        if(trendingMovies.isEmpty){
+
+        if trendingMovies.isEmpty {
             do {
-                async let trendingMoviesValue =  dataFetcher.fetchTitles(
+                async let trendingMoviesValue = dataFetcher.fetchTitles(
                     for: Constants.movieString,
                     by: Constants.trendingString
                 )
-                async let topRatedMoviesValue  =  dataFetcher.fetchTitles(
+                async let topRatedMoviesValue = dataFetcher.fetchTitles(
                     for: Constants.movieString,
                     by: Constants.topUnderScoreRatedString
                 )
-                
-                async let trendingTVValue  =  dataFetcher.fetchTitles(
+
+                async let trendingTVValue = dataFetcher.fetchTitles(
                     for: Constants.tvString,
                     by: Constants.trendingString
                 )
-                async let topRatedTVValue  =  dataFetcher.fetchTitles(
+                async let topRatedTVValue = dataFetcher.fetchTitles(
                     for: Constants.tvString,
                     by: Constants.topUnderScoreRatedString
                 )
-                
+
                 trendingMovies = try await trendingMoviesValue
                 topRatedMovies = try await topRatedMoviesValue
-                
+
                 trendingTV = try await trendingTVValue
                 topRatedTV = try await topRatedTVValue
-                
-                
-                if let title = trendingMovies.randomElement( ){
+
+                if let title = trendingMovies.randomElement() {
                     heroTitle = title
                 }
-                
+
                 homeStatus = .success
             } catch {
                 print(error)
                 homeStatus = .failed(underlyingError: error)
             }
-        }
-        else{
+        } else {
             homeStatus = .success
         }
     }
     func getVideoId(for title: String) async {
-            videoIdStatus = .fetching
-            
-            do {
-                videoId = try await dataFetcher.fetchVideoId(for: title)
-                print("✅ Fetched videoId: '\(videoId)'")
-                videoIdStatus = .success
-            } catch {
-                print(error)
-                videoIdStatus = .failed(underlyingError: error)
-            }
+        videoIdStatus = .fetching
+
+        do {
+            videoId = try await dataFetcher.fetchVideoId(for: title)
+            print("✅ Fetched videoId: '\(videoId)'")
+            videoIdStatus = .success
+        } catch {
+            print(error)
+            videoIdStatus = .failed(underlyingError: error)
         }
-    
-    
-    
+    }
+
     func getUpcomingmovies() async {
         print("🎬 Starting to fetch upcoming movies...")
         upcomingStatus = .fetching
-        
+
         do {
-            async let upcomingMoviesValue  =  dataFetcher.fetchTitles(
+            async let upcomingMoviesValue = dataFetcher.fetchTitles(
                 for: Constants.movieString,
                 by: Constants.smallUpcomingString
             )
-            
+
             upcomingMovies = try await upcomingMoviesValue
-            print("✅ Successfully fetched \(upcomingMovies.count) upcoming movies")
+            print(
+                "✅ Successfully fetched \(upcomingMovies.count) upcoming movies"
+            )
             upcomingStatus = .success
-        }
-        catch {
+        } catch {
             print("❌ Error fetching upcoming movies: \(error)")
             print("❌ Error details: \(error.localizedDescription)")
             upcomingStatus = .failed(underlyingError: error)
         }
-        
+
     }
 
 }

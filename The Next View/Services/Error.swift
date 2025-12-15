@@ -1,10 +1,3 @@
-//
-//  Error.swift
-//  The Next View
-//
-//  Created by UTF LABS on 28/11/2025.
-//
-
 import Foundation
 
 enum APIConfigError: Error, LocalizedError {

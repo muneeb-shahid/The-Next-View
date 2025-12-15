@@ -1,10 +1,3 @@
-//
-//  SearchViewModel.swift
-//  The Next View
-//
-//  Created by UTF LABS on 09/12/2025.
-//
-
 import Foundation
 
 @Observable

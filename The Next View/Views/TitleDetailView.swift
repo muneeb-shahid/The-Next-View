@@ -1,10 +1,3 @@
-//
-//  TitleDetailView.swift
-//  The Next View
-//
-//  Created by UTF LABS on 04/12/2025.
-//
-
 import SwiftUI
 
 struct TitleDetailView: View {
@@ -29,23 +22,9 @@ struct TitleDetailView: View {
             case .success:
                 ScrollView {
                     LazyVStack(alignment: .leading) {
-//                                                AsyncImage(url: URL(string: title.poster_path ?? "")) {
-//                                                    image in
-//                                                    image.resizable().scaledToFit()
-//                        
-//                                                } placeholder: {
-//                                                    ProgressView()
-//                                                        .frame(
-//                                                            width: geometry.size.width,
-//                                                            height: geometry.size.height
-//                                                        )
-//                                                }
 
                         YoutubePlayer(videoId: viewModel.videoId)
                             .aspectRatio(1.3, contentMode: .fit)
-
-//                                                                    YoutubePlayer(videoId: "I9Y5qYp8ro8")
-//                                                                        .aspectRatio(1.3, contentMode: .fit)
 
                         Text(titleName)
                             .font(.title2)
@@ -62,7 +41,6 @@ struct TitleDetailView: View {
 
             case .failed(let error):
                 Text(error.localizedDescription)
-                    //                    errorMessage()
                     .frame(
                         width: geometry.size.width,
                         height: geometry.size.height
@@ -74,11 +52,13 @@ struct TitleDetailView: View {
         .task {
             print("📺 TitleDetailView task started for: \(titleName)")
             await viewModel.getVideoId(for: titleName)
-            print("📺 TitleDetailView task completed. Status: \(viewModel.videoIdStatus)")
+            print(
+                "📺 TitleDetailView task completed. Status: \(viewModel.videoIdStatus)"
+            )
         }
         .onAppear {
             print("📺 TitleDetailView appeared for: \(titleName)")
-//           viewModel.getVideoId(for: titleName)
+
         }
     }
 

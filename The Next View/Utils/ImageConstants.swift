@@ -1,10 +1,3 @@
-//
-//  ImageConstants.swift
-//  The Next View
-//
-//  Created by UTF LABS on 24/11/2025.
-//
-
 import SwiftUI
 
 struct ImageConstants {
@@ -25,6 +18,5 @@ struct ImageConstants {
         "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
 
     static let posterURLStart = "https://image.tmdb.org/t/p/w500"
-    
-   
+
 }
