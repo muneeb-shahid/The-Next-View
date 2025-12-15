@@ -10,7 +10,7 @@ import SwiftUI
 struct TitleDetailView: View {
 
     var title: Title
-    var viewModel = ViewModel()
+    var viewModel = HomeViewModel()
     var titleName: String {
         return (title.name ?? title.title) ?? ""
     }

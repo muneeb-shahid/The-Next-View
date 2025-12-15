@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
 
-    private var viewModel = ViewModel()
+    private var viewModel = HomeViewModel()
     @State private var titleDetailNavigationPath = NavigationPath()
     var body: some View {
         NavigationStack(path: $titleDetailNavigationPath) {

@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class ViewModel {
+class HomeViewModel {
     enum FetchStatus {
         case notStarted
         case fetching

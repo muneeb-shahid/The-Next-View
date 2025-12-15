@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpcomingView: View {
 
-    @State private var viewModel = ViewModel()       
+    @State private var viewModel = HomeViewModel()       
 
 
     var body: some View {
