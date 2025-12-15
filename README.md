@@ -15,13 +15,19 @@
 
 ## 📸 Screenshots
 
-<!-- Upload your screenshots to the 'Screenshots' folder and link them here -->
-<p float="left">
-  <!-- Example: <img src="Screenshots/home.png" width="200" /> -->
-  <!-- <img src="Screenshots/detail.png" width="200" /> -->
-</p>
+### Discover & Browse
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Screenshots/HomePage.png" width="30%" alt="Home Page" />
+  <img src="Screenshots/HomePageScroll.png" width="30%" alt="Home Scroll" />
+  <img src="Screenshots/UpcomingPage.png" width="30%" alt="Upcoming Page" />
+</div>
 
-_"Upload screenshots to the `Screenshots` folder and they will appear here."_
+### Search & Play
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="Screenshots/SearchMovie.png" width="30%" alt="Search Movie" />
+  <img src="Screenshots/SearchTV.png" width="30%" alt="Search TV" />
+  <img src="Screenshots/Player.png" width="30%" alt="Video Player" />
+</div>
 
 ## 🛠 Tech Stack
 
@@ -62,7 +68,7 @@ The project is organized efficiently:
 
 ## ✍️ Author
 
-Created by **UTF LABS**.
+Created by **Muneeb Shahid**.
 
 ---
 *Enjoy exploring The Next View!*
