@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		61CD397F2EF00B660059EF16 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61CD397E2EF00B660059EF16 /* YouTubePlayerKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		61E0D99D2ECB1C330024F5CB /* The Next View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Next View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61CD397F2EF00B660059EF16 /* YouTubePlayerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = "The Next View";
 			packageProductDependencies = (
+				61CD397E2EF00B660059EF16 /* YouTubePlayerKit */,
 			);
 			productName = "The Next View";
 			productReference = 61E0D99D2ECB1C330024F5CB /* The Next View.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 61E0D9942ECB1C330024F5CB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				61CD397D2EF00B660059EF16 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 61E0D99E2ECB1C330024F5CB /* Products */;
 			projectDirPath = "";
@@ -326,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61CD397D2EF00B660059EF16 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61CD397E2EF00B660059EF16 /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61CD397D2EF00B660059EF16 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61E0D9952ECB1C330024F5CB /* Project object */;
 }

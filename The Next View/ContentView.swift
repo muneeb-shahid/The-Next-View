@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    
+
     var body: some View {
         TabView {
             Tab(Constants.homeString, systemImage: ImageConstants.homeImageName)
@@ -27,17 +26,13 @@ struct ContentView: View {
                 Constants.searchString,
                 systemImage: ImageConstants.searchImageName
             ) {
-                SearchView()            }
-            Tab(
-                Constants.downloadString,
-                systemImage: ImageConstants.downloadImageName
-            ) {
-                Text("this is download screen")
+                SearchView()
             }
+
         }
 
     }
-        }
+}
 
 #Preview {
     ContentView()

@@ -71,13 +71,13 @@ struct HomeView: View {
                                         .buttonUI()
 
                                 }
-                                .frame(width: 150)
-                                Button {
-
-                                } label: {
-                                    Text(Constants.downloadString)
-                                        .buttonUI()
-                                }
+//                                .frame(width: 150)
+//                                Button {
+//
+//                                } label: {
+//                                    Text(Constants.downloadString)
+//                                        .buttonUI()
+//                                }
 
                             }
                             HorizontalListView(
