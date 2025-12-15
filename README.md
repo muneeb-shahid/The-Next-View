@@ -2,7 +2,6 @@
 
 **The Next View** is a modern iOS application designed for discovering Movies and TV Shows. Built with **SwiftUI** and following the **MVVM** architecture, it provides a seamless and immersive experience for users to explore trending content, search for their favorites, and watch trailers.
 
-![App Icon](path_to_icon_if_any) <!-- Optional: Add app icon here -->
 
 ## 🌟 Features
 
